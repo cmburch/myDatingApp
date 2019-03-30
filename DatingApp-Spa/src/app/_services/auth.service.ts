@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 @Injectable({
-  providedIn: 'root'//need to fix error https://stackoverflow.com/questions/50307628/angular-injectable-decorator-expected-0-arguments-but-got-1
+  providedIn: 'root'
 })
 export class AuthService {
   baseUrl = 'http://localhost:5000/api/auth/';
