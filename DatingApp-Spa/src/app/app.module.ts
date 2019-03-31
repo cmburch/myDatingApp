@@ -14,6 +14,8 @@ import { AlertifyService } from './_services/alertify.service';
 import { MessagesComponent } from './messages/messages.component';
 import { MemberListComponent } from './member-list/member-list.component';
 import { ListsComponent } from './lists/lists.component';
+import { RouterModule } from '@angular/router';
+import { appRoutes } from './route';
 
 @NgModule({
    declarations: [
@@ -30,7 +32,9 @@ import { ListsComponent } from './lists/lists.component';
       BrowserModule,
       BsDropdownModule.forRoot(),
       HttpClientModule,
-      FormsModule
+      FormsModule,
+      RouterModule.forRoot(appRoutes)
+
    ],
    providers: [
      AuthService,
