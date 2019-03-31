@@ -1,3 +1,4 @@
+import { AuthGuard } from './_guards/auth.guard';
 import { BrowserModule } from '@angular/platform-browser';
 import { BsDropdownModule } from 'ngx-bootstrap';
 import { NgModule } from '@angular/core';
@@ -39,7 +40,8 @@ import { appRoutes } from './route';
    providers: [
      AuthService,
      ErrorInterceptorProvider,
-     AlertifyService
+     AlertifyService,
+     AuthGuard
     ],
    bootstrap: [
       AppComponent
