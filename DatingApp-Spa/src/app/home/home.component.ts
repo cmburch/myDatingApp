@@ -8,8 +8,8 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  registerMode:boolean = false;
-  values:any;
+  registerMode = false;
+  values: any;
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
@@ -17,10 +17,10 @@ export class HomeComponent implements OnInit {
   }
 
   registerToggle() {
-    this.registerMode = !this.registerMode;
+    this.registerMode = true;
   }
 
-     getValues() {
+  getValues() {
      this.http.get('http://localhost:5000/api/values/')
      .subscribe(res => {
        this.values = res;
@@ -28,5 +28,9 @@ export class HomeComponent implements OnInit {
        // this will be logging service in the future
        console.log(err);
      });
+   }
+
+   cancelRegisterMode(registerMode: boolean) {
+      this.registerMode = registerMode;
    }
 }
