@@ -13,7 +13,7 @@
           <a class="nav-link" href="#">Messages</a>
         </li>
       </ul>
-    
+     
       <div *ngIf="loggedIn()" class="dropdown" dropdown>
         <a class="dropdown-toggle text-light" dropdownToggle>
           Welcome {{authService.decodedToken?.unique_name | titlecase}}
