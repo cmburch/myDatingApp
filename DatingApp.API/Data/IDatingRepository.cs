@@ -1,3 +1,8 @@
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using DatingApp.API.Helpers;
+using DatingApp.API.Models;
+
 namespace DatingApp.API.Data
 {
     public interface IDatingRepository
@@ -10,6 +15,6 @@ namespace DatingApp.API.Data
 
         Task<IEnumerable<User>> GetUsers();
 
-        Task<User> GetUser();
+        Task<User> GetUser(int id);
     }
 }
