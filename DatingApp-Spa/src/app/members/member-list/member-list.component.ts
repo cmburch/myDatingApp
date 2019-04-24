@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../_models/user';
-import { UserService } from './../_services/user.service';
+import { User } from '../../_models/user';
+import { UserService } from './../../_services/user.service';
 
 @Component({
   selector: 'app-member-list',
@@ -17,7 +17,7 @@ export class MemberListComponent implements OnInit {
   }
    loadUser() {
     this.userService.getUsers().subscribe((users: User[]) => {
-      this.user = users;
+      this.users = users;
     }, error => {
       console.log(error);
     });
