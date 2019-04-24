@@ -1,6 +1,6 @@
 import { AuthGuard } from './_guards/auth.guard';
 import { BrowserModule } from '@angular/platform-browser';
-import { BsDropdownModule } from 'ngx-bootstrap';
+import { BsDropdownModule, TabsModule } from 'ngx-bootstrap';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -41,6 +41,7 @@ export function tokenGetter() {
    imports: [
       BrowserModule,
       BsDropdownModule.forRoot(),
+      TabsModule.forRoot(),
       HttpClientModule,
       FormsModule,
       RouterModule.forRoot(appRoutes),
