@@ -13,11 +13,13 @@ export class MemberListComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-
+    this.loadUser();
   }
    loadUser() {
     this.userService.getUsers().subscribe((users: User[]) => {
       this.users = users;
+      console.log(this.users );
+
     }, error => {
       console.log(error);
     });
