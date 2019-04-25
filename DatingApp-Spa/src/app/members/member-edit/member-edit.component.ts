@@ -31,18 +31,18 @@ export class MemberEditComponent implements OnInit {
     });
   }
 
-  updateUser() {
-    // this is just a test to see object being update after save button
-    console.log(this.user);
-    this.editForm.reset(this.user);
-  }
-
   // updateUser() {
-  //   this.userService.updateUser(this.authService.decodedToken.nameid, this.user).subscribe(next => {
-  //     this.editForm.reset(this.user);
-  //   }, error => {
-  //     console.log(error);
-  //   });
+  //   // this is just a test to see object being update after save button
+  //   console.log(this.user);
+  //   this.editForm.reset(this.user);
   // }
+
+  updateUser() {
+    this.userService.updateUser(this.authService.decodedToken.nameid, this.user).subscribe(next => {
+      this.editForm.reset(this.user);
+    }, error => {
+      console.log(error);
+    });
+  }
 
 }
