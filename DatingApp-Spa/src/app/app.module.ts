@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BsDropdownModule, TabsModule } from 'ngx-bootstrap';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ValueComponent } from './value/value.component';
 import { NavComponent } from './nav/nav.component';
@@ -53,6 +53,7 @@ export function tokenGetter() {
       BsDropdownModule.forRoot(),
       TabsModule.forRoot(),
       HttpClientModule,
+      ReactiveFormsModule,
       FormsModule,
       RouterModule.forRoot(appRoutes),
       NgxGalleryModule,
