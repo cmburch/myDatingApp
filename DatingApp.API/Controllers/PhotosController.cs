@@ -59,7 +59,7 @@ namespace DatingApp.API.Controllers
             if (userId != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
                 return Unauthorized();
 
-            var userFromRepo = await _repo.GetUser(userId, true);
+            var userFromRepo = await _repo.GetUser(userId);
 
             var file = photoForCreationDto.File;
 
@@ -98,5 +98,7 @@ namespace DatingApp.API.Controllers
 
             return BadRequest("Could not add the photo");
         }
+
+    }
 
 }
