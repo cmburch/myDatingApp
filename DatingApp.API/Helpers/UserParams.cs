@@ -11,6 +11,7 @@ namespace DatingApp.API.Helpers
             set { pageSize = (value > MaxPageSize) ? MaxPageSize : value;}
         }
 
+        // this is used for the filtering
         public int UserId { get; set; }
         public string Gender { get; set; }
         public int MinAge { get; set; } = 18;
