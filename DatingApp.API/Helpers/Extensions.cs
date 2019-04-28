@@ -18,6 +18,7 @@ namespace DatingApp.API.Helpers
             int currentPage, int itemsPerPage, int totalItems, int totalPages)
         {
             var paginationHeader = new PaginationHeader(currentPage, itemsPerPage, totalItems, totalPages);
+            //converts to camel case for the front end i.e Angular
             var camelCaseFormatter = new JsonSerializerSettings();
             camelCaseFormatter.ContractResolver = new CamelCasePropertyNamesContractResolver();
             response.Headers.Add("Pagination", 
