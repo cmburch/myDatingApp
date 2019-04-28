@@ -33,6 +33,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JwtModule } from '@auth0/angular-jwt';
 import { TimeAgoPipe } from 'time-ago-pipe';
+import { ListsResolver } from './_resolvers/lists.resolver';
 
 
 export function tokenGetter() {
@@ -89,6 +90,7 @@ export function tokenGetter() {
      MemberDetailResolver,
      MemberListResolver,
      MemberEditResolver,
+     ListsResolver,
      PreventUnsavedChanges
     ],
    bootstrap: [
