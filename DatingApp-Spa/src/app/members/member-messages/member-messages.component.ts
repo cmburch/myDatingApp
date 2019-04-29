@@ -12,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 export class MemberMessagesComponent implements OnInit {
   @Input() recipientId: number;
   messages: Message[];
+  newMessage: any = {};
 
   constructor(private userService: UserService, private authService: AuthService,
     private toastr: ToastrService) { }
@@ -28,6 +29,17 @@ export class MemberMessagesComponent implements OnInit {
         this.toastr.error(error);
       });
 
+  }
+
+  sendMessage() {
+    this.newMessage.recipientId = this.recipientId;
+    this.userService.sendMessage(this.authService.decodedToken.nameid, this.newMessage)
+      .subscribe((message: Message) => {
+        this.messages.unshift(message);
+        this.newMessage.content = '';
+    }, error => {
+      this.toastr.error(error);
+    });
   }
 
 }
