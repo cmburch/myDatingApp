@@ -34,6 +34,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JwtModule } from '@auth0/angular-jwt';
 import { TimeAgoPipe } from 'time-ago-pipe';
 import { ListsResolver } from './_resolvers/lists.resolver';
+import { MessagesResolver } from './_resolvers/messages.resolver';
 
 
 export function tokenGetter() {
@@ -91,6 +92,7 @@ export function tokenGetter() {
      MemberListResolver,
      MemberEditResolver,
      ListsResolver,
+     MessagesResolver,
      PreventUnsavedChanges
     ],
    bootstrap: [
