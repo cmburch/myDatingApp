@@ -164,7 +164,6 @@ namespace DatingApp.API.Data
                     && m.SenderDeleted == false)
                 .OrderByDescending(m => m.MessageSent)
                 .ToListAsync();
-
             return messages;
         }
 
