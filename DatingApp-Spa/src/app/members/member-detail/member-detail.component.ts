@@ -1,9 +1,11 @@
+import { ToastrService } from 'ngx-toastr';
 import { UserService } from './../../_services/user.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { User } from '../../_models/user';
 import { NgxGalleryImage, NgxGalleryOptions, NgxGalleryAnimation } from 'ngx-gallery';
 import { TabsetComponent } from 'ngx-bootstrap';
+import { AuthService } from '../../_services/auth.service';
 
 @Component({
   selector: 'app-member-detail',
@@ -16,7 +18,8 @@ export class MemberDetailComponent implements OnInit {
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
 
-  constructor(private userService: UserService, private route: ActivatedRoute) { }
+  constructor(private userService: UserService, private toastr: ToastrService,
+    private authService: AuthService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.data.subscribe(data => {
@@ -56,6 +59,14 @@ export class MemberDetailComponent implements OnInit {
 
   selectTab(tabId: number) {
     this.memberTabs.tabs[tabId].active = true;
+  }
+
+  sendLike(id: number) {
+    this.userService.sendLike(this.authService.decodedToken.nameid, id).subscribe(data => {
+      this.toastr.success('You have liked: ' + this.user.knownAs);
+    }, error => {
+      this.toastr.error(error);
+    });
   }
 
 }

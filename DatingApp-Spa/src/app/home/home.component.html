@@ -1,11 +1,17 @@
 <div>
-  <div *ngIf="!loggedIn()" class="hero-image">
+  <div class="hero-image">
 
   <div class="hero-center">
   <div *ngIf="!registerMode" style="text-align: center">
+
     <h1>Find your match</h1>
-    <p class="lead">Come on in to view your matches... All you need to do is sign up!</p>
-    <div class="text-center">
+    <p  *ngIf="!loggedIn(); else notShow" class="lead">Come on in to view your matches... All you need to do is sign up!</p>
+    <ng-template #notShow>
+        <p>
+          Continue your search for your special someone!!!
+        </p>
+    </ng-template>
+    <div *ngIf="!loggedIn()" class="text-center">
       <button class="btn btn-primary btn-lg mr-2" (click)="registerToggle()">Register</button>
       <button [disabled]="true" class="btn btn-info btn-lg">Learn more</button>
       <!-- <button class="btn btn-info btn-lg">Learn more</button> -->
@@ -25,3 +31,15 @@
 
 </div>
 
+<!--
+<div *ngIf="show; else notShow">
+    <p>
+      Show this only if "show" is true
+    </p>
+  </div>
+
+  <ng-template #notShow>
+    <p>
+      Show this only if "show" is not true
+    </p>
+  </ng-template> -->
