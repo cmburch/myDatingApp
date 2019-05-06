@@ -2,6 +2,7 @@ import { AlertifyService } from './../_services/alertify.service';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-nav',
@@ -12,7 +13,7 @@ export class NavComponent implements OnInit {
   model: any = {};
   photoUrl: string;
 
-  constructor(public authService: AuthService, private alertify: AlertifyService, private router: Router) { }
+  constructor(public authService: AuthService, private toastr: ToastrService, private router: Router) { }
 
   ngOnInit() {
     this.authService.currentPhotoUrl.subscribe(photoUrl => this.photoUrl = photoUrl);
@@ -20,9 +21,9 @@ export class NavComponent implements OnInit {
 
   login() {
     this.authService.login(this.model).subscribe(next => {
-      // this.alertify.success('Logged in successfully');
+      this.toastr.success('Logged in successfully');
     }, error => {
-      // this.alertify.error(error);
+      this.toastr.error(error);
     }, () => {
       this.router.navigate(['/members']);
     });
@@ -42,6 +43,6 @@ export class NavComponent implements OnInit {
     console.log('logged out');
     this.router.navigate(['/home']);
 
-    // this.alertify.message('logged out');
+    this.toastr.success('logged out');
   }
 }

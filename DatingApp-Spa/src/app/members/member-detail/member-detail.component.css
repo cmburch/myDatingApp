@@ -1,8 +1,14 @@
 .img-thumbnail {
   margin: 25px;
   width: 85%;
-  height: 85%;
+  height: 220px;
 }
+
+/* .img-thumbnail {
+  margin: 25px;
+  width: 85%;
+  height: 85%;
+} */
 
 .card-body {
   padding: 0 25px;
@@ -13,3 +19,7 @@
   background-color: #fff;
   border-top: none;
 }
+
+/* .card-img-top .img-thumbnail{
+  height:220px;
+} */
